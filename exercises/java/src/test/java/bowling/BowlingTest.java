@@ -18,11 +18,4 @@ public class BowlingTest {
 
         assertThat(new Bowling().calcScore(rolls)).isEqualTo(20);
     }
-
-    @Test
-    public void noSpecialCasesAndDifferentEachRoll() {
-        int[] rolls = { 4, 5, 6, 3, 4, 5, 7, 2, 8, 1, 2, 4, 7, 1, 5, 2, 7, 1, 3, 2 };
-
-        assertThat(new Bowling().calcScore(rolls)).isEqualTo(79);
-    }
 }
