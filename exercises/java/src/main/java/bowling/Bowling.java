@@ -3,7 +3,13 @@ package bowling;
 public class Bowling {
 
     public int calcScore(int[] rolls) {
-        return 0;
+        int sum = 0;
+
+        for (int score : rolls) {
+            sum += score;
+        }
+
+        return sum;
     }
 
 }
