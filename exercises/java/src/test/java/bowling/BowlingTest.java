@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class BowlingTest {
     @Test
-    public void checkingEmptyScore() {
+    public void gutterGame() {
         int[] rolls = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
         assertThat(new Bowling().calcScore(rolls)).isEqualTo(0);
@@ -21,7 +21,6 @@ public class BowlingTest {
     }
 
     @Test
-    @Ignore
     public void gameWithSingleSpare() {
         int[] rolls = { 5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
