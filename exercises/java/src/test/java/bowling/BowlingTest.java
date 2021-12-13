@@ -1,5 +1,6 @@
 package bowling;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -17,5 +18,13 @@ public class BowlingTest {
         int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 
         assertThat(new Bowling().calcScore(rolls)).isEqualTo(20);
+    }
+
+    @Test
+    @Ignore
+    public void gameWithSingleSpare() {
+        int[] rolls = { 5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+        assertThat(new Bowling().calcScore(rolls)).isEqualTo(12);
     }
 }
