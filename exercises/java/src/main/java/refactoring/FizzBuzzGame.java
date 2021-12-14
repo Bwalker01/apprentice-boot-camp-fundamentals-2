@@ -24,21 +24,14 @@ class FizzBuzzGame {
     }
 
     private String getValue(int currentNum) {
-        incrementCounters();
-        boolean isMultipleOf3 = threeCount == THREE;
-        boolean isMultipleOf5 = fiveCount == FIVE;
-        String numItself = String.valueOf(currentNum + 1);
-        String numValue = isMultipleOf3 || isMultipleOf5 ? EMPTY : numItself;
-        if (isMultipleOf3)
-            numValue += fizz();
-        if (isMultipleOf5)
-            numValue += buzz();
-        return numValue;
-    }
-
-    private void incrementCounters() {
         threeCount++;
         fiveCount++;
+        String numValue = threeCount == THREE || fiveCount == FIVE ? EMPTY : String.valueOf(currentNum + 1);
+        if (threeCount == THREE)
+            numValue += fizz();
+        if (fiveCount == FIVE)
+            numValue += buzz();
+        return numValue;
     }
 
     private String fizz() {
