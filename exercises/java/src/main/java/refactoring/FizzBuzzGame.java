@@ -41,12 +41,12 @@ class FizzBuzzGame {
     }
 
     private String fizz() {
-        threeCount = 0b00;
+        threeCount = ZERO;
         return "Fizz";
     }
 
     private String buzz() {
-        fiveCount = 0b101;
+        fiveCount = FIVE;
         return "Buzz";
     }
 
