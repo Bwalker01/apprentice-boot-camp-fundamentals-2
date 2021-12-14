@@ -7,16 +7,13 @@ package refactoring;
 
 class FizzBuzzGame {
 
-    /**
-     *
-     */
     private static final int FIVE = 0b101;
     private static final int ZERO = 0b00;
     private static final int THREE = 0b11;
     private static final String EMPTY = "";
     private int currentNum;
     private int threeCount;
-    private int fiveCount = FIVE;
+    private int fiveCount = ZERO;
 
     String play() {
         String gameString = EMPTY;
@@ -27,10 +24,9 @@ class FizzBuzzGame {
     }
 
     private String getValue(int currentNum) {
-        threeCount++;
-        fiveCount--;
+        incrementCounters();
         boolean isMultipleOf3 = threeCount == THREE;
-        boolean isMultipleOf5 = fiveCount == ZERO;
+        boolean isMultipleOf5 = fiveCount == FIVE;
         String numItself = String.valueOf(currentNum + 1);
         String numValue = isMultipleOf3 || isMultipleOf5 ? EMPTY : numItself;
         if (isMultipleOf3)
@@ -40,13 +36,18 @@ class FizzBuzzGame {
         return numValue;
     }
 
+    private void incrementCounters() {
+        threeCount++;
+        fiveCount++;
+    }
+
     private String fizz() {
         threeCount = ZERO;
         return "Fizz";
     }
 
     private String buzz() {
-        fiveCount = FIVE;
+        fiveCount = ZERO;
         return "Buzz";
     }
 
