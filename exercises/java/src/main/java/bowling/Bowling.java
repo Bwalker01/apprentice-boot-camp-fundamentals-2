@@ -5,21 +5,20 @@ public class Bowling {
     public int calcScore(int[] rolls) {
         int sum = 0;
 
-        for (int frame = 0; frame < rolls.length; frame += 2) {
+        for (int rollNum = 0; rollNum < rolls.length; rollNum += 2) {
             int frameScore;
 
-            if (rolls[frame] == 10) {
-                frameScore = 10 + rolls[frame + 1] + rolls[frame + 2];
+            if (rolls[rollNum] == 10 && rollNum < rolls.length - 2) {
+                frameScore = 10 + rolls[rollNum + 1] + rolls[rollNum + 2];
 
-                frame--;
+                rollNum--;
             } else {
-                frameScore = rolls[frame] + rolls[frame + 1];
+                frameScore = rolls[rollNum] + rolls[rollNum + 1];
 
-                if (frameScore == 10) {
-                    frameScore += rolls[frame + 2];
+                if (frameScore == 10 && rollNum < rolls.length - 2) {
+                    frameScore += rolls[rollNum + 2];
                 }
             }
-
             sum += frameScore;
         }
 

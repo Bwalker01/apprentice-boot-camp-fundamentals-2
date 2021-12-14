@@ -61,4 +61,32 @@ public class BowlingTest {
 
         assertThat(new Bowling().calcScore(rolls)).isEqualTo(245);
     }
+
+    @Test
+    public void successiveStrikesAndSpares() {
+        int[] rolls = { 10, 5, 5, 10, 5, 5, 10, 5, 5, 10, 5, 5, 1, 1, 0, 0 };
+
+        assertThat(new Bowling().calcScore(rolls)).isEqualTo(153);
+    }
+
+    @Test
+    public void allStrikes() {
+        int[] rolls = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
+
+        assertThat(new Bowling().calcScore(rolls)).isEqualTo(300);
+    }
+
+    @Test
+    public void strikesOnlyAtLastFrame() {
+        int[] rolls = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 5 };
+
+        assertThat(new Bowling().calcScore(rolls)).isEqualTo(25);
+    }
+
+    @Test
+    public void nineZero() {
+        int[] rolls = { 9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0, 9, 0 };
+
+        assertThat(new Bowling().calcScore(rolls)).isEqualTo(90);
+    }
 }
