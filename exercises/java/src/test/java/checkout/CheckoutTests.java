@@ -30,9 +30,8 @@ public class CheckoutTests {
         checkout.scan("A");
         checkout.scan("A");
         checkout.scan("A");
-        assertThat(checkout.total()).isEqualTo(130);
+        assertThat(checkout.total()).isEqualTo(150);
     }
-
 
     @Test
     public void sixA() {
@@ -44,7 +43,7 @@ public class CheckoutTests {
         checkout.scan("A");
         checkout.scan("A");
         checkout.scan("A");
-        assertThat(checkout.total()).isEqualTo(260);
+        assertThat(checkout.total()).isEqualTo(270);
     }
 
     @Test
@@ -78,16 +77,16 @@ public class CheckoutTests {
     @Test
     public void simple() {
         Checkout checkout = new Checkout();
-        
+
         checkout.scan("A");
-        assertThat(checkout.total()).isEqualTo( 50);
-        
+        assertThat(checkout.total()).isEqualTo(50);
+
         checkout.scan("B");
-        assertThat(checkout.total()).isEqualTo( 80);
-        
+        assertThat(checkout.total()).isEqualTo(80);
+
         checkout.scan("C");
         assertThat(checkout.total()).isEqualTo(100);
-        
+
         checkout.scan("D");
         assertThat(checkout.total()).isEqualTo(115);
     }
@@ -95,41 +94,41 @@ public class CheckoutTests {
     @Test
     public void incremental() {
         Checkout checkout = new Checkout();
-        
+
         checkout.scan("A");
-        assertThat(checkout.total()).isEqualTo( 50);
-        
+        assertThat(checkout.total()).isEqualTo(50);
+
         checkout.scan("B");
-        assertThat(checkout.total()).isEqualTo( 80);
-        
+        assertThat(checkout.total()).isEqualTo(80);
+
         checkout.scan("A");
         assertThat(checkout.total()).isEqualTo(130);
-        
+
         checkout.scan("A");
-        assertThat(checkout.total()).isEqualTo(160);
-        
+        assertThat(checkout.total()).isEqualTo(180);
+
         checkout.scan("B");
-        assertThat(checkout.total()).isEqualTo(175);
-        
-        checkout.scan("C");
         assertThat(checkout.total()).isEqualTo(195);
-        
+
+        checkout.scan("C");
+        assertThat(checkout.total()).isEqualTo(215);
+
         checkout.scan("B");
-        assertThat(checkout.total()).isEqualTo(225);
-        
-        checkout.scan("C");
         assertThat(checkout.total()).isEqualTo(245);
-        
-        checkout.scan("D");
-        assertThat(checkout.total()).isEqualTo(260);
-        
-        checkout.scan("D");
-        assertThat(checkout.total()).isEqualTo(275);
-        
-        checkout.scan("D");
-        assertThat(checkout.total()).isEqualTo(290);
-        
+
         checkout.scan("C");
+        assertThat(checkout.total()).isEqualTo(265);
+
+        checkout.scan("D");
+        assertThat(checkout.total()).isEqualTo(280);
+
+        checkout.scan("D");
+        assertThat(checkout.total()).isEqualTo(295);
+
+        checkout.scan("D");
         assertThat(checkout.total()).isEqualTo(310);
+
+        checkout.scan("C");
+        assertThat(checkout.total()).isEqualTo(330);
     }
 }
