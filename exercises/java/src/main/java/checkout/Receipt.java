@@ -14,7 +14,7 @@ class Receipt {
     void scannedA() {
         text += "A: 50";
         if (++numberOfA % 5 == 0) {
-            text += " - 30 (5 for 220)";
+            text += discountText(30, 5, 220);
             total += 30;
         } else {
             total += 50;
@@ -22,10 +22,14 @@ class Receipt {
         text += "\n";
     }
 
+    private String discountText(int newPrice, int discAmount, int discPrice) {
+        return String.format(" - %d (%d for %d)", newPrice, discAmount, discPrice);
+    }
+
     void scannedB() {
         text += "B: 30";
         if (++numberOfB % 2 == 0) {
-            text += " - 15 (2 for 45)";
+            text += discountText(15, 2, 45);
             total += 15;
         } else {
             total += 30;
