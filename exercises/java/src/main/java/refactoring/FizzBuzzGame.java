@@ -10,10 +10,13 @@ class FizzBuzzGame {
     /**
      *
      */
+    private static final int FIVE = 0b101;
+    private static final int ZERO = 0b00;
+    private static final int THREE = 0b11;
     private static final String EMPTY = "";
     private int currentNum;
     private int threeCount;
-    private int fiveCount = 5;
+    private int fiveCount = FIVE;
 
     String play() {
         String gameString = EMPTY;
@@ -26,8 +29,8 @@ class FizzBuzzGame {
     private String getValue(int currentNum) {
         threeCount++;
         fiveCount--;
-        boolean isMultipleOf3 = threeCount == 3;
-        boolean isMultipleOf5 = fiveCount == 0;
+        boolean isMultipleOf3 = threeCount == THREE;
+        boolean isMultipleOf5 = fiveCount == ZERO;
         String numItself = String.valueOf(currentNum + 1);
         String numValue = isMultipleOf3 || isMultipleOf5 ? EMPTY : numItself;
         if (isMultipleOf3)
@@ -38,12 +41,12 @@ class FizzBuzzGame {
     }
 
     private String fizz() {
-        threeCount = 0;
+        threeCount = 0b00;
         return "Fizz";
     }
 
     private String buzz() {
-        fiveCount = 5;
+        fiveCount = 0b101;
         return "Buzz";
     }
 
