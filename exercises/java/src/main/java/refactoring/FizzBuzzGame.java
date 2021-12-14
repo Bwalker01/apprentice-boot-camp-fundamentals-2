@@ -7,24 +7,32 @@ package refactoring;
 
 class FizzBuzzGame {
 
+    /**
+     *
+     */
+    private static final String EMPTY = "";
     private int currentNum;
     private int threeCount;
     private int fiveCount = 5;
 
     String play() {
-        String gameString = "";
+        String gameString = EMPTY;
         for (; currentNum < 100; currentNum++)
             gameString += getValue(currentNum) + " ";
-        return gameString.substring(0, gameString.length() - 1);
+        String completeString = gameString.substring(0, gameString.length() - 1);
+        return completeString;
     }
 
     private String getValue(int currentNum) {
         threeCount++;
         fiveCount--;
-        String numValue = threeCount == 3 || fiveCount == 0 ? "" : String.valueOf(currentNum + 1);
-        if (threeCount == 3)
+        boolean isMultipleOf3 = threeCount == 3;
+        boolean isMultipleOf5 = fiveCount == 0;
+        String numItself = String.valueOf(currentNum + 1);
+        String numValue = isMultipleOf3 || isMultipleOf5 ? EMPTY : numItself;
+        if (isMultipleOf3)
             numValue += fizz();
-        if (fiveCount == 0)
+        if (isMultipleOf5)
             numValue += buzz();
         return numValue;
     }
